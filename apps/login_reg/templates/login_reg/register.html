@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Register</title>
+  </head>
+  <body>
+
+
+<!-- Registration Form -->
+    <h1>Register Here</h1>
+    {%for message in messages %}
+         {%if "signup" in message.tags %}
+              <p> {{message}} </p>
+         {%endif%}
+    {%endfor%}
+    <form class="register" action="/registration/register" method="POST">
+      {% csrf_token %}
+      <label for="Username">Username:<input type="text" name="username"></label>
+      <label for="Email">Email:<input type="text" name="email"></label>
+      <label for="password">Password:<input type="text" name="password"></label>
+      <label for="confirm_password">Confirm Password:<input type="text" name="confirm_password"></label>
+      <input type="submit" name="submit" value="Register">
+    </form>
+    <p>Already have an account <a href="/">Login Here</a></p>
+
+
+
+  </body>
+</html>
